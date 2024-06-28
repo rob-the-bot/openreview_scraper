@@ -1,4 +1,8 @@
-# openreview_scraper
+# OpenReview Scraper
 
-Scrape paper information from openreview.
-Requires the Python package [openreview-py](https://github.com/openreview/openreview-py).
+Scrape paper information from OpenReview.
+
+# Requirement
+
+- OpenReview account
+- Python package [openreview-py](https://github.com/openreview/openreview-py).
