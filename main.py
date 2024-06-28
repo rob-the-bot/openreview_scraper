@@ -1,5 +1,5 @@
+from typing import List
 import openreview
-from config import EMAIL, PASSWORD
 
 # https://docs.openreview.net/getting-started/using-the-api/installing-and-instantiating-the-python-client
 client = openreview.api.OpenReviewClient(
@@ -15,7 +15,7 @@ client = openreview.api.OpenReviewClient(
 submissions = client.get_all_notes(content={"venueid": "NeurIPS.cc/2024/Conference"})
 
 
-def check_paper(keywords, abstract, WORD="neuroscience") -> bool:
+def check_paper(keywords: List[str], abstract: str, WORD="neuroscience") -> bool:
 
     assert isinstance(keywords, list)
     assert isinstance(abstract, str)
@@ -36,7 +36,6 @@ for paper in submissions:
     # save all the keywords (in lower case) to a set
     keywords = [x.lower() for x in content["keywords"]["value"]]
     abstract = content["abstract"]["value"].replace("\n","")
-    
 
     if not check_paper(keywords, abstract):
         continue
